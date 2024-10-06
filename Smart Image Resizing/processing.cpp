@@ -3,11 +3,6 @@
 
 using namespace std;
 
-// v DO NOT CHANGE v ------------------------------------------------
-// The implementation of rotate_left is provided for you.
-// REQUIRES: img points to a valid Image
-// MODIFIES: *img
-// EFFECTS:  The image is rotated 90 degrees to the left (counterclockwise).
 void rotate_left(Image* img) {
 
   // for convenience
@@ -31,12 +26,7 @@ void rotate_left(Image* img) {
   delete aux;
 }
 
-// ^ DO NOT CHANGE ^ ------------------------------------------------
 
-// v DO NOT CHANGE v ------------------------------------------------
-// The implementation of rotate_right is provided for you.
-// REQUIRES: img points to a valid Image.
-// MODIFIES: *img
 // EFFECTS:  The image is rotated 90 degrees to the right (clockwise).
 void rotate_right(Image* img){
 
@@ -59,11 +49,8 @@ void rotate_right(Image* img){
   *img = *aux;
   delete aux;
 }
-// ^ DO NOT CHANGE ^ ------------------------------------------------
 
 
-// v DO NOT CHANGE v ------------------------------------------------
-// The implementation of diff2 is provided for you.
 static int squared_difference(Pixel p1, Pixel p2) {
   int dr = p2.r - p1.r;
   int dg = p2.g - p1.g;
@@ -72,16 +59,9 @@ static int squared_difference(Pixel p1, Pixel p2) {
   // later on in the algorithm.
   return (dr*dr + dg*dg + db*db) / 100;
 }
-// ^ DO NOT CHANGE ^ ------------------------------------------------
-
-
-// ------------------------------------------------------------------
-// You may change code below this line!
 
 
 
-// REQUIRES: img points to a valid Image.
-//           energy points to a Matrix.
 // MODIFIES: *energy
 // EFFECTS:  energy serves as an "output parameter".
 //           The Matrix pointed to by energy is initialized to be the same
@@ -117,14 +97,6 @@ void compute_energy_matrix(const Image* img, Matrix* energy) {
 
 
 
-
-
-
-
-// REQUIRES: energy points to a valid Matrix.
-//           cost points to a Matrix.
-//           energy and cost aren't pointing to the same Matrix
-// MODIFIES: *cost
 // EFFECTS:  cost serves as an "output parameter".
 //           The Matrix pointed to by cost is initialized to be the same
 //           size as the given energy Matrix, and then the cost matrix is
@@ -152,11 +124,6 @@ void compute_vertical_cost_matrix(const Matrix* energy, Matrix *cost) {
 }
 
 
-
-// REQUIRES: cost points to a valid Matrix
-//           seam points to an array
-//           the size of seam is >= Matrix_height(cost)
-// MODIFIES: seam[0]...seam[Matrix_height(cost)-1]
 // EFFECTS:  seam serves as an "output parameter".
 //           The vertical seam with the minimal cost according to the given
 //           cost matrix is found and the seam array is filled with the column
@@ -186,11 +153,6 @@ void find_minimal_vertical_seam(const Matrix* cost, int seam[]) {
 }
 
 
-// REQUIRES: img points to a valid Image with width >= 2
-//           seam points to an array
-//           the size of seam is == Image_height(img)
-//           each element x in seam satisfies 0 <= x < Image_width(img)
-// MODIFIES: *img
 // EFFECTS:  Removes the given vertical seam from the Image. That is, one
 //           pixel will be removed from every row in the image. The pixel
 //           removed from row r will be the one with column equal to seam[r].
@@ -237,9 +199,6 @@ void remove_vertical_seam(Image *img, const int seam[]) {
 }
 
 
-// REQUIRES: img points to a valid Image
-//           0 < newWidth && newWidth <= Image_width(img)
-// MODIFIES: *img
 // EFFECTS:  Reduces the width of the given Image to be newWidth by using
 //           the seam carving algorithm. See the spec for details.
 // NOTE:     Use the new operator here to create Matrix objects, and
@@ -269,10 +228,6 @@ void seam_carve_width(Image *img, int newWidth) {
 }
 
 
-
-// REQUIRES: img points to a valid Image
-//           0 < newHeight && newHeight <= Image_height(img)
-// MODIFIES: *img
 // EFFECTS:  Reduces the height of the given Image to be newHeight.
 // NOTE:     This is equivalent to first rotating the Image 90 degrees left,
 //           then applying seam_carve_width(img, newHeight), then rotating
@@ -283,10 +238,7 @@ void seam_carve_height(Image *img, int newHeight) {
   rotate_right(img);
 }
 
-// REQUIRES: img points to a valid Image
-//           0 < newWidth && newWidth <= Image_width(img)
-//           0 < newHeight && newHeight <= Image_height(img)
-// MODIFIES: *img
+
 // EFFECTS:  Reduces the width and height of the given Image to be newWidth
 //           and newHeight, respectively.
 // NOTE:     This is equivalent to applying seam_carve_width(img, newWidth)
