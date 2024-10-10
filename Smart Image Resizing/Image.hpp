@@ -3,7 +3,6 @@
 
 /* Image.hpp
  * Originally written by James Juett at the University of Michigan
- * for project 3 in EECS 280, Winter 2016.
  */
 
 #include <iostream>
