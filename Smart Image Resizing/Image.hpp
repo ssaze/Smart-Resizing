@@ -4,7 +4,7 @@
 /* Image.hpp
  * Originally written by James Juett at the University of Michigan
  */
-
+ 
 #include <iostream>
 #include "Matrix.hpp"
 
