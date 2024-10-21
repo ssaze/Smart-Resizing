@@ -1,6 +1,6 @@
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
-
+ 
 /* Image.hpp
  * Originally written by James Juett at the University of Michigan
  */
