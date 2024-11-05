@@ -5,7 +5,7 @@
 // EFFECTS:  Initializes the Image with the given width and height.
 // NOTE:     Do NOT use new or delete here.
 void Image_init(Image* img, int width, int height) {
-  // Initialize each channel using Matrix_init
+  // Initialize each channel using Matrix_init 
   Matrix_init(&img->red_channel, width, height);
   Matrix_init(&img->green_channel, width, height);
   Matrix_init(&img->blue_channel, width, height);
